@@ -1,3 +1,10 @@
+/**
+ * Sten=1
+ * 
+ * Sax=2
+ * 
+ * Påse=3
+ */
 input.onButtonPressed(Button.AB, function () {
     radio.sendValue("SpelVal", 1)
 })
@@ -16,7 +23,21 @@ radio.onReceivedValue(function (name, value) {
 })
 function räknapoäng (num: number, num2: number) {
     if (spelval == 0) {
-    	
+        if (num == num2) {
+            basic.showString("=")
+        } else if ((num == 1 || num == 3) && (num2 == 1 || num2 == 3)) {
+            if (num == 3) {
+                poängkonsol1 += 1
+            } else {
+                poängkonsol2 += 1
+            }
+        } else {
+            if (num < num2) {
+                poängkonsol1 += 1
+            } else {
+                poängkonsol2 += 1
+            }
+        }
     } else {
         if (num > num2) {
             poängkonsol1 += 1
